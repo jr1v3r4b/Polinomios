@@ -25,47 +25,55 @@ public class ManejoPolinomio {
         {
             
             if (veCar[i] == '-' || Character.isDigit(veCar[i])) {
+                
+                if (Character.isDigit(veCar[i])) 
+                {
+                    auxCade += veCar[i];
+                    if (i < veCar.length - 1)
+                    {
+                        if (veCar[i + 1] == '-' || veCar[i + 1] == '+') 
+                        {
+                            vecStr[j] = auxCade;
+                            j++;
+                            vecStr[j] = "0";
+                            j++;
+                            auxCade = "";
+                        }
+                    }else{
+                            vecStr[j] = auxCade;
+                            j++;
+                            auxCade = "";
+                            if (i + 1 == veCar.length) 
+                            {
+                                vecStr[j] = "0";
+                            }
+                    }
 
-                auxCade += veCar[i];
 
-                if( Character.isDigit(veCar[i]) &&  (veCar[i + 1] == '-')) {
-                    vecStr[j] = auxCade;
-                    j++;
-                    vecStr[j] = "0";
-                    j++;
-                    auxCade = "";
+                }else{
+                    auxCade += veCar[i];
+
                 }
 
             } else {
-                if (veCar[i] == '+') {
-                    i++;
-                    auxCade += veCar[i];
-                    if (veCar[i + 1] == '+' || veCar[i + 1] == '-') {
-                        vecStr[j] = auxCade;
+                if (veCar[i] == 'x') {
+                    if (auxCade.equals("")) {
+                        vecStr[j] = "1";
                         j++;
-                        vecStr[j] = "0";
-                        j++;
-                        auxCade = "";
-                    }
-
-                    if (veCar[i] == 'x') {
-                        if (auxCade.equals("")) {
-                            vecStr[j] = "1";
+                    } else {
+                        if (auxCade.equals("-")) {
+                            auxCade += "1";
+                            vecStr[j] = auxCade;
                             j++;
-
+                            auxCade = "";
                         } else {
-                            if (auxCade.equals("-")) {
-                                auxCade += "1";
-                                vecStr[j] = auxCade;
-                                j++;
-                                auxCade = "";
-                            } else {
-                                vecStr[j] = auxCade;
-                                j++;
-                                auxCade = "";
-                            }
-
+                            vecStr[j] = auxCade;
+                            j++;
+                            auxCade = "";
                         }
+                    }
+                    if(i <= veCar.length - 2)
+                    {
                         if (veCar[i + 1] == '^') {
                             i += 2;
                             auxCade += veCar[i];
@@ -77,11 +85,12 @@ public class ManejoPolinomio {
                             j++;
                             auxCade = "";
                         }
-
+                    }else{
+                        vecStr[j] = "1";
+                        j++;
                     }
                 }
             }
-
             System.out.println("\n");
         }
         
