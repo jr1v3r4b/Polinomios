@@ -1,6 +1,9 @@
 
 package Clases;
 
+import java.util.Arrays;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sala306
@@ -95,5 +98,10 @@ public class Forma2 {
             }
         }
         return a;
+    }
+    
+        public void mostrar(Forma2 vec)
+    {
+        JOptionPane.showMessageDialog(null, Arrays.toString(vecForma2));
     }
 }

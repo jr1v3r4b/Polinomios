@@ -91,6 +91,7 @@ public class Polinomios {
                             
                             break;
                         case 4: //mostrar
+                            pf2.mostrar(pf2);
                             
                             break;
                             
