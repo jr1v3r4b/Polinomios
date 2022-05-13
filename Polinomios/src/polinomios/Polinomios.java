@@ -35,6 +35,8 @@ public class Polinomios {
         Forma2 pf2 = new Forma2(20);
         Forma3 pf3 = new Forma3();
         
+        
+        
         int op = 0, op2 = 0;
         do{
             op = menu();
@@ -46,13 +48,14 @@ public class Polinomios {
                    
                     switch (op2) {
                         case 1: 
-                    
-                           
+       
                             break;
                         case 2:
                             break;
                             
                         case 3:
+                            
+                            pf1.evaluarPolinomio(pf1);
                             break;
                         case 4: //mostrar
                             pf1.mostrar(pf1);
@@ -63,9 +66,67 @@ public class Polinomios {
                     }
                     break;
                 case 2:
+     
+                    int cont=0, nTerminos=0;
+                    for(int j=0;preFormas[j]!=null;j++)
+                    {
+                        cont++;
+                    }
+
+                    nTerminos= cont/2;             
+                    pf2 = new Forma2(nTerminos*2+1);
+                    pf2.organizarEnForma2(preFormas, pf2, nTerminos);
+                    op2= menuFormas();
+
+                   
+                    switch (op2) {
+                        case 1: 
+                    
+                           
+                            break;
+                        case 2:
+                            break;
+                            
+                        case 3:
+                            
+                            break;
+                        case 4: //mostrar
+                            
+                            break;
+                            
+                        default:
+                            throw new AssertionError();
+                    }
+                    
 
                     break;
                 case 3:
+                    op2 = menuFormas();
+                    
+                    for(int j=0;preFormas[j]!=null;j++)
+                    {
+                        pf3.insertarOrdenado(Integer.parseInt(preFormas[j]), Integer.parseInt(preFormas[j + 1]));
+                    }
+                   
+                    switch (op2) {
+                        case 1: //insertar termino
+                            
+                           pf3.insertarTermino(pf3);
+                           
+                            break;
+                        case 2:
+                            break;
+                            
+                        case 3:
+                            pf3.evaluar(pf3);
+                            break;
+                        case 4: //mostrar
+                            pf3.evaluar(pf3);
+                            break;
+                            
+                        default:
+                            throw new AssertionError();
+                    }
 
                     break;
                 case 4:
@@ -94,14 +155,14 @@ public class Polinomios {
     
       public static int menuFormas()
     {
-        return Integer.parseInt(JOptionPane.showInputDialog("**MENU FORMA 1**\n"
+        return Integer.parseInt(JOptionPane.showInputDialog("**MENU FORMA ELEGIDA**\n"
                 + "1. Insertar termino\n"
                 + "2. borrar termino \n"
                 + "3. Evaluar Polinomio \n"
                 + "4. Mostrar forma\n"
-                + "5. Reconstruir\n"
-                + "6. Sumar 2 polinomios\n"
-                + "7. Multiplicar 2 Polinomio\n"
+               // + "5. Reconstruir\n"
+               // + "6. Sumar 2 polinomios\n"
+               // + "7. Multiplicar 2 Polinomio\n"
                 + "8. Volver\n"
                 + "9. Salir\n"
                 + "Ingrese una opcion: "));

@@ -110,6 +110,14 @@ public class Forma1 {
                 result += x;
                
             }
+            if(exp == 0 )
+            {
+                result = result + vec.getVecForma1(i);
+            }
+            else
+            {
+                result = (int)(result + (vec.getVecForma1(i)*(Math.pow(x, exp))));
+            }
         }
     }
 }
